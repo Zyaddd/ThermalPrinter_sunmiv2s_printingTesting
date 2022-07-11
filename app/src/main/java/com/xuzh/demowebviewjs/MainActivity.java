@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
 
 	String getDateAndTime() {
 		Date time = Calendar.getInstance().getTime();
-		SimpleDateFormat simpleDate = new SimpleDateFormat("dd/MM/yyyy'T'HH:mm:ss");
+		SimpleDateFormat simpleDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		String stringDate = simpleDate.format(time);
 
 		return stringDate;
@@ -107,19 +107,19 @@ public class MainActivity extends Activity {
 
 				woyouService.setAlignment(2, callback);
 				woyouService.setFontSize(22, callback);
-				woyouService.printText("الرقم الضريبي     :     300056462300003\n", callback);
+				woyouService.printText("الرقم الضريبي   :   300056462300003\n", callback);
 				woyouService.printText("الرقم الموحد     :     920002667\n", callback);
 
 				woyouService.setAlignment(1, callback);
 				woyouService.printText(getDateAndTime() + "\n", callback);
 
 				woyouService.setAlignment(2, callback);
-				woyouService.printText("رقم الفاتورة     :     20220703009476\n", callback);
-				woyouService.printText("المنج     :     بنزبن 91\n", callback);
-				woyouService.printText("الكمية/لتر     :    22.361\n", callback);
-				woyouService.printText("السعر/ريال (ِشامل الضريبة)     :    22.3612.236\n", callback);
-				woyouService.printText("المبلغ شامل الضريبة     :    50.00\n", callback);
-				woyouService.printText("يشمل ضريبة القيمة المضافة 15%     :    6.52\n", callback);
+				woyouService.printText("رقم الفاتورة   :   20220703009476\n", callback);
+				woyouService.printText("المنتج   :   بنزبن 91\n", callback);
+				woyouService.printText("الكمية/لتر   :   22.361\n", callback);
+				woyouService.printText("السعر/ريال (ِشامل الضريبة)   :  22.3612.236\n", callback);
+				woyouService.printText("المبلغ شامل الضريبة  : 50.00\n", callback);
+				woyouService.printText("يشمل ضريبة القيمة المضافة 15%  : 6.52\n", callback);
 
 				woyouService.lineWrap(2, callback);
 				woyouService.setAlignment(1, callback);
@@ -127,7 +127,7 @@ public class MainActivity extends Activity {
 
 				woyouService.lineWrap(2, callback);
 				woyouService.setAlignment(1, callback);
-				woyouService.printQRCode("", 4, 1, callback);
+				woyouService.printQRCode("myQr", 6, 1, callback);
 
 				woyouService.lineWrap(2, callback);
 				woyouService.printText("الباحة\n" +

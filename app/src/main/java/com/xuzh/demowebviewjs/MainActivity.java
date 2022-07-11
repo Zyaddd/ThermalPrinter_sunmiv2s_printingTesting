@@ -95,7 +95,7 @@ public class MainActivity extends Activity {
 				woyouService.lineWrap(1, callback);
 				woyouService.setAlignment(1, callback);
 				woyouService.setFontSize(36, callback);
-				woyouService.printText("فاتورة ضريبية مبسطة\n", callback);
+				woyouService.printText("فاتورة ضريبية مبسطة \n", callback);
 
 
 				woyouService.setAlignment(1, callback);

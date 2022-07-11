@@ -18,6 +18,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class MainActivity extends Activity {
 
 	WebView mWebView;
@@ -49,8 +53,17 @@ public class MainActivity extends Activity {
 		intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");
 		startService(intent);//启动打印服务
 		bindService(intent, connService, Context.BIND_AUTO_CREATE);
+
+
 	}
 
+	String getDateAndTime() {
+		Date time = Calendar.getInstance().getTime();
+		SimpleDateFormat simpleDate = new SimpleDateFormat("dd/MM/yyyy'T'HH:mm:ss");
+		String stringDate = simpleDate.format(time);
+
+		return stringDate;
+	}
 	class WebViewClientDemo extends WebViewClient {
 
 		@Override
@@ -79,21 +92,48 @@ public class MainActivity extends Activity {
 			Toast.makeText(getApplicationContext(), "funAndroid " + i,	Toast.LENGTH_SHORT).show();
 
 			try {
-
-				woyouService.setFontSize(36, callback);
+				woyouService.lineWrap(1, callback);
 				woyouService.setAlignment(1, callback);
-				woyouService.printText("Middle\n", callback);
+				woyouService.setFontSize(36, callback);
+				woyouService.printText("فاتورة ضريبية مبسطة\n", callback);
 
 
-				woyouService.setFontSize(16, callback);
-				woyouService.setAlignment(0, callback);
-				woyouService.printText("يسار 16", callback);
-				woyouService.lineWrap(2, callback);
+				woyouService.setAlignment(1, callback);
+				woyouService.setFontSize(18, callback);
+				woyouService.printText("شركة الدريس للخدمات البترولية و النقليات\n" +
+						"الرياض ,حي النسيم الشرقي ,طريق خريص 11421\n", callback);
 
-				woyouService.setFontSize(22, callback);
+
+
 				woyouService.setAlignment(2, callback);
-				woyouService.printText("يمين 22", callback);
+				woyouService.setFontSize(22, callback);
+				woyouService.printText("الرقم الضريبي     :     300056462300003\n", callback);
+				woyouService.printText("الرقم الموحد     :     920002667\n", callback);
+
+				woyouService.setAlignment(1, callback);
+				woyouService.printText(getDateAndTime() + "\n", callback);
+
+				woyouService.setAlignment(2, callback);
+				woyouService.printText("رقم الفاتورة     :     20220703009476\n", callback);
+				woyouService.printText("المنج     :     بنزبن 91\n", callback);
+				woyouService.printText("الكمية/لتر     :    22.361\n", callback);
+				woyouService.printText("السعر/ريال (ِشامل الضريبة)     :    22.3612.236\n", callback);
+				woyouService.printText("المبلغ شامل الضريبة     :    50.00\n", callback);
+				woyouService.printText("يشمل ضريبة القيمة المضافة 15%     :    6.52\n", callback);
+
 				woyouService.lineWrap(2, callback);
+				woyouService.setAlignment(1, callback);
+				woyouService.printText("947-السواري-الباحة", callback);
+
+				woyouService.lineWrap(2, callback);
+				woyouService.setAlignment(1, callback);
+				woyouService.printQRCode("", 4, 1, callback);
+
+				woyouService.lineWrap(2, callback);
+				woyouService.printText("الباحة\n" +
+						"الشارع العام",callback);
+				woyouService.lineWrap(2, callback);
+
 
 			} catch (RemoteException e) {
 				e.printStackTrace();

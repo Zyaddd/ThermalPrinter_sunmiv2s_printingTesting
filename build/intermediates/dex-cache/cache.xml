@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\zhou7chao\Desktop\JS_Bridge_Print_Android_Studio\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="25.0.0"
+        sha1="288d9119cdb54fb3ea9e9fc8f8d431ae61b7d59a">
+        <dex dex="C:\Users\zhou7chao\Desktop\JS_Bridge_Print_Android_Studio\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_bf4f4222c81b6689b1aaa95928d5336d34bca4f9\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zhou7chao\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="true"
+        revision="25.0.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="C:\Users\zhou7chao\Desktop\JS_Bridge_Print_Android_Studio\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-19.1.0_07bf21148778f39da019aceedcfb427e8096d585\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zhou7chao\Desktop\JS_Bridge_Print_Android_Studio\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="25.0.0"
+        sha1="84cb86179cbc74028391b9ab20da9f252ad8e232">
+        <dex dex="C:\Users\zhou7chao\Desktop\JS_Bridge_Print_Android_Studio\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_bdd1d9a4bbd57a64b9c2858ff7fcbc64eb8b77bc\classes.dex" />
+    </item>
+
+</items>

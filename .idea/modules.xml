@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JS_Bridge_Print_Android_Studio_cn.iml" filepath="$PROJECT_DIR$/.idea/modules/JS_Bridge_Print_Android_Studio_cn.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/JS_Bridge_Print_Android_Studio_cn.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/JS_Bridge_Print_Android_Studio_cn.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ThermalPrinter_sunmiv2s_printingTesting.iml" filepath="$PROJECT_DIR$/.idea/modules/ThermalPrinter_sunmiv2s_printingTesting.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ThermalPrinter_sunmiv2s_printingTesting.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ThermalPrinter_sunmiv2s_printingTesting.app.iml" />
     </modules>
   </component>
 </project>

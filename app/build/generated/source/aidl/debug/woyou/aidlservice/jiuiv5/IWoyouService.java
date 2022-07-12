@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: C:\\Users\\zyad\\Desktop\\JS_Bridge_Print_Android_Studio_cn\\app\\src\\main\\aidl\\woyou\\aidlservice\\jiuiv5\\IWoyouService.aidl
+ * Original file: C:\\Users\\zyad\\AndroidStudioProjects\\ThermalPrinter_sunmiv2s_printingTesting\\app\\src\\main\\aidl\\woyou\\aidlservice\\jiuiv5\\IWoyouService.aidl
  */
 package woyou.aidlservice.jiuiv5;
 public interface IWoyouService extends android.os.IInterface

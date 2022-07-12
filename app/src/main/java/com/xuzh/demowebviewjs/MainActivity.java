@@ -1,26 +1,32 @@
 package com.xuzh.demowebviewjs;
 
-import woyou.aidlservice.jiuiv5.ICallback;
-import woyou.aidlservice.jiuiv5.IWoyouService;
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.util.Base64;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import woyou.aidlservice.jiuiv5.ICallback;
+import woyou.aidlservice.jiuiv5.IWoyouService;
+
 
 public class MainActivity extends Activity {
 
@@ -55,6 +61,34 @@ public class MainActivity extends Activity {
 		bindService(intent, connService, Context.BIND_AUTO_CREATE);
 
 
+		testQr();
+	}
+
+	public void testQr() {
+		String tag1 = getHexString(1, "Irfan Nasim");
+		String tag2 = getHexString(2, "1234567891");
+		String tag3 = getHexString(3, "2021-11-17");
+		String tag4 = getHexString(4, "300.00");
+		String tag5 = getHexString(5, "75.00");
+
+		String finalString = tag1 + tag2 + tag3 + tag4 + tag5;
+		byte[] decodedHex = finalString.getBytes();
+		String result = Base64.encodeToString(decodedHex, Base64.DEFAULT);
+		System.out.println("==> " + result);
+
+	}
+
+	@TargetApi(Build.VERSION_CODES.KITKAT)
+	public String getHexString(int tagNo, String tagValue) {
+		String tagNumLengthHexString = Integer.toHexString(tagNo);
+
+		int tagValueLength = tagValue.length();
+		String tagValueLengthHexString = Integer.toHexString(tagValueLength);
+
+		byte[] tagValueBytes = tagValue.getBytes(StandardCharsets.UTF_8);
+		String tagValueHexString = new String(tagValueBytes, StandardCharsets.UTF_8);
+
+		return (0 + tagNumLengthHexString) + (0 + tagValueLengthHexString) + tagValueHexString;
 	}
 
 	String getDateAndTime() {
@@ -107,17 +141,17 @@ public class MainActivity extends Activity {
 
 				woyouService.setAlignment(2, callback);
 				woyouService.setFontSize(22, callback);
-				woyouService.printText("الرقم الضريبي   :   300056462300003\n", callback);
-				woyouService.printText("الرقم الموحد     :     920002667\n", callback);
+				woyouService.printText("الرقم الضريبي : 300056462300003\n", callback);
+				woyouService.printText("الرقم الموحد   :   920002667\n", callback);
 
 				woyouService.setAlignment(1, callback);
 				woyouService.printText(getDateAndTime() + "\n", callback);
 
 				woyouService.setAlignment(2, callback);
-				woyouService.printText("رقم الفاتورة   :   20220703009476\n", callback);
-				woyouService.printText("المنتج   :   بنزبن 91\n", callback);
-				woyouService.printText("الكمية/لتر   :   22.361\n", callback);
-				woyouService.printText("السعر/ريال (ِشامل الضريبة)   :  22.3612.236\n", callback);
+				woyouService.printText("رقم الفاتورة : 20220703009476\n", callback);
+				woyouService.printText("المنتج  : بنزبن 91\n", callback);
+				woyouService.printText("الكمية/لتر : 22.361\n", callback);
+				woyouService.printText("السعر/ريال (ِشامل الضريبة)  :  22.36\n", callback);
 				woyouService.printText("المبلغ شامل الضريبة  : 50.00\n", callback);
 				woyouService.printText("يشمل ضريبة القيمة المضافة 15%  : 6.52\n", callback);
 
@@ -127,7 +161,7 @@ public class MainActivity extends Activity {
 
 				woyouService.lineWrap(2, callback);
 				woyouService.setAlignment(1, callback);
-				woyouService.printQRCode("myQr", 6, 1, callback);
+				woyouService.printQRCode("MDEwYklyZmFuIE5hc2ltMDIwYTEyMzQ1Njc4OTEwMzBhMjAyMS0xMS0xNzA0MDYzMDAuMDAwNTA1", 6, 1, callback);
 
 				woyouService.lineWrap(2, callback);
 				woyouService.printText("الباحة\n" +

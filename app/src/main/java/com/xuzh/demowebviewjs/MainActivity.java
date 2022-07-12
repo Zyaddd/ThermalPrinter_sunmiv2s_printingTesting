@@ -1,25 +1,21 @@
 package com.xuzh.demowebviewjs;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.util.Base64;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
-import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -32,6 +28,7 @@ public class MainActivity extends Activity {
 
 	WebView mWebView;
 	String qrBarcodeHash;
+
 
 	@SuppressLint("SetJavaScriptEnabled")
 	@Override
@@ -70,34 +67,9 @@ public class MainActivity extends Activity {
 		);
 
 		System.out.print("==============>>>>>>" + qrBarcodeHash);
-	}
-
-	public void testQr() {
-		String tag1 = getHexString(1, "Irfan Nasim");
-		String tag2 = getHexString(2, "1234567891");
-		String tag3 = getHexString(3, "2021-11-17");
-		String tag4 = getHexString(4, "300.00");
-		String tag5 = getHexString(5, "75.00");
-
-		String finalString = tag1 + tag2 + tag3 + tag4 + tag5;
-		byte[] decodedHex = finalString.getBytes();
-		String result = Base64.encodeToString(decodedHex, Base64.DEFAULT);
-		System.out.println("==> " + result);
 
 	}
 
-	@TargetApi(Build.VERSION_CODES.KITKAT)
-	public String getHexString(int tagNo, String tagValue) {
-		String tagNumLengthHexString = Integer.toHexString(tagNo);
-
-		int tagValueLength = tagValue.length();
-		String tagValueLengthHexString = Integer.toHexString(tagValueLength);
-
-		byte[] tagValueBytes = tagValue.getBytes(StandardCharsets.UTF_8);
-		String tagValueHexString = new String(tagValueBytes, StandardCharsets.UTF_8);
-
-		return (0 + tagNumLengthHexString) + (0 + tagValueLengthHexString) + tagValueHexString;
-	}
 
 	String getDateAndTime() {
 		Date time = Calendar.getInstance().getTime();
